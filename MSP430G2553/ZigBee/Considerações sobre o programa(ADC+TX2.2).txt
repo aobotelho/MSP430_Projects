@@ -1,0 +1,22 @@
+--> O vetor a ser enviado foi levemente mudado:
+   ____________________________________________________
+  | |x|:| |D|D|D|D|;|y|:| |D|D|D|D|;|z|:| |D|D|D|D|s|s|   D = data
+  |_|_|_|_|_|_|_|_|_|_|_|_|_|_|_|_|_|_|_|_|_|_|_|_|_|_|   s = skip
+   0 0 0 0 0 0 0 0 0 0 1 1 1 1 1 1 1 1 1 1 2 2 2 2 2 2 
+   0 1 2 3 4 5 6 7 8 9 0 1 2 3 4 5 6 7 8 9 0 1 2 3 4 5 
+	Desta forma pode-se extrair para, por exemplo, o excel mais facilmente (trocando espaços entre eixos por ;)
+
+--> Fora feitas mudanças na hora de "montar" o vetor de modo que ficasse mais automático.
+
+--> Generalização no nome dos vetores
+
+--> Generalização da quantidade de vetores. 
+
+--> apesar das generalizações todos vetores seguem a forma
+   _____________________
+  | |E|:| |D|D|D|D|;|s|s|   D = data
+  |_|_|_|_|_|_|_|_|_|_|_|   s = skip
+     ^ ^ ^ ^ ^ ^ ^ 
+     | | | | | | |
+   Formato específico 
+   dos vetores 

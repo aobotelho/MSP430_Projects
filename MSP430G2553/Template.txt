@@ -1,0 +1,149 @@
+//Timer_A configuration
+    //Count up to ... (example)
+//    TACCR0 = 1024;
+    
+//    TACTL =     
+//		    TASSEL_	// 0 - TACLK ; 1 - ACLK ; 2 - SMCLK ; 3 - INCLK 
+//    		  | MC_ 		// 0 - Stop ; 1 - Up ; 2 - Continuous ; 3 - Up/down
+//    		  | ID_ 		// 0 - CLK/1 ; 1 - CLK/2 ; 2 - CLK/4 ; 3 - CLK/8
+//    	  	  | TACLR		// Timer_A Clear
+//    		  | TAIE		// Timer_A interruption Enable - TAIFG flag
+    		  ;
+    
+  
+//    TACCTL0 =   
+//		    CCIE		// Enable CC interrupt - CCIFG flag
+//    		  | CM_			// Capture Mode; 0 - No capture ; 1 - Rising edge ; 2 - falling edge ; 3 - Both edges
+//    		  | CCIS_		// Capture input; 0 - CCIxA ; 1 - CCIxB ; 2 - GND ; 3 - Vcc 
+//    		  | SCS			// Synchronous capture
+//    		  | SCCI		//
+//    		  | OUTMOD_		// PWM output mode; 0 - output only ; 1 - Set ; 2 - Toggle/reset ; 3 - Set/Reset ;     					// 4 - Toggle ; 5 - reset ; 6 - Toggle/set ; 7 - Reset/set 
+    		  ;
+
+
+
+
+//ADC10 configuration
+//    ADC10CTL0 = 
+//    		    SREF_ 		// Reference ; See device .h file 
+//    		  | ADC10SHT_	  	// 0 - 4 cycles ; 1 - 8 cycles ; 2 - 16 cycles ; 3 - 64 cycles
+//    		  | ADC10SR		// Limits the maximum sampling rate to 50 ksps
+//    		  | REFOUT 		// Reference Output
+//    		  | REFBURST		// Reference Burst
+//    		  | MSC 		// Multiple sample conversion
+//    		  | REFON 		// Reference generator on
+//    		  | REF2_5V		// If set: Reference = 2.5V ; if not: Reference = 1.5V
+//    		  | ADC10ON 		// ADC10 on
+//    		  | ADC10IE 		// ADC10 interrupt enable
+//    		  | ENC			// Enable conversion
+//    		  | ADC10SC		// Start sample-and-conversion
+    		  ;
+    
+//    ADC10CTL1 = 
+//    		    ADC10DIV_X	  	// N - CLK/(N+1) (e.g. ADC10DIV_4 = CLK/5)
+//    		  | ADC10SSEL_X	 	// CLK source ; 0 - ADC10OSC ; 1 - ACLK ; 2 - MCLK ; 3 - SMCLK
+//    		  | CONSEQ_X		// Conversion mode ; 0 - single channel single conversion
+//    		  	  	  	// 1 - Sequence ; 2 - repeat single ; 3 - Repeat sequence
+//    		  | INCH_X		// Input X = AX (e.g. INCH_0 = A0)
+//    		  | SHS_X		// Source select ; 0 - ADC10SC bit ; 1 - Timer_A.OUT1 ; 2 - Timer_A.OUT0 
+//    		  | ISSH		// Set if sample-input is inverted		  
+    		  ;
+    
+//Wich pins are analog input (example)
+//    ADC10AE0 = BIT4;
+
+
+
+//UART configuration
+//    	UCA0CTL1 = UCSWRST;
+    	//Put your TX and RX pins on both fields (example)
+//    	P1SEL = BIT2 + BIT1;
+//    	P1SEL2 = BIT2 + BIT1;
+
+    	//Prescalers; see page 424 of http://www.ti.com/lit/ug/slau144j/slau144j.pdf for more information
+//    	UCA0BR0 = 104;
+//    	UCA0BR1 = 0x00;
+    	
+    	
+    	//Second modulation stage. See page 420, table 15-2 and 15-3 on the previous website. 
+//    	UCA0MCTL = UCBRS0;
+
+//    	UCA0CTL1 = 
+//    			  UCSSEL_2	// CLK source; 0 - UCLK ; 1 - ACLK ; 2 - SMCLK ; 3 - SMLCK
+//    			| UCRXEIE	// Enable to set UCAxRXIFG when an erroneous character is received
+//    			| UCBRKIE	// Receive break enabled
+//    			| UCDORM	// Put USCI on dormant mode
+//    			| UCTXADDR	// Transmit address; If set next frame transmitted is an address
+//    			| UCTXBRK	// Transmit break; If set next frame transmitted is a break
+    			;
+    	
+//    	UCA0CTL1  &= ~UCSWRST;
+
+//USCI USCI_A0 and USCI_B0 config
+  	    //USCI_A0
+  	  	UCA0CTL0 =
+//	  			   UCCKPH		// If set: Data is captured on the first UCLK edge and changed on the following edge. If not set: changed on the first edge and captured on the following
+  	  			   UCCKPL		// If set: Inactive state high. If not set: Inactive state low.
+  	  			 | UCMSB 		// If set: MSB first. If not set: LSB first
+// 	  			 | UC7BIT		// If set: 7-bit data. If not set: 8-bit data
+  	  			 | UCMST 		// If set: Master. If not set: Slave
+// 	  			 | UCMODE_X		// 0 - 3 pin SPI ; 1 - 4 pin SPI & slave enabled when UCxSTE = 1 ; 2 - 4 pin SPI & slave enabled when UCxSTE = 0 ; 3 - I²C mode;
+  	  			 | UCSYNC		// If set: synchronous mode. If not set: Asynchronous mode
+  	  			 ;
+  	  	//USCI_B0
+//	  	UCB0CTL0 =
+//	  			   UCCKPH		// If set: Data is captured on the first UCLK edge and changed on the following edge. If not set: changed on the first edge and captured on the following
+//	  			   UCCKPL		// If set: Inactive state high. If not set: Inactive state low.
+//	  			 | UCMSB 		// If set: MSB first. If not set: LSB first
+// 	  			 | UC7BIT		// If set: 7-bit data. If not set: 8-bit data
+// 	  			 | UCMST 		// If set: Master. If not set: Slave
+// 	  			 | UCMODE_X		// 0 - 3 pin SPI ; 1 - 4 pin SPI & slave enabled when UCxSTE = 1 ; 2 - 4 pin SPI & slave enabled when UCxSTE = 0 ; 3 - I²C mode;
+// 	  			 | UCSYNC		// If set: synchronous mode. If not set: Asynchronous mode
+//	  			 ;
+  	  	
+  	  	//USCI_A0
+  	  	UCA0CTL1 = 
+  	  			   UCSSEL_2		// Clock Source. 0 - NA ; 1 - ACLK ; 2 or 3 - SMCLK;
+  	  			   ;
+  	  	//USCI_B0
+//	  	UCB0CTL1 = 
+//	  			   UCSSEL_2		// Clock Source. 0 - NA ; 1 - ACLK ; 2 or 3 - SMCLK;
+// 	  			   ;
+
+  	  	//USCI_A0. The two following registers are the clock prescales. Prescaler = (UCA0BR0 + UCA0BR1 x 256)
+  	  	UCA0BR0 |= 0x02;                         
+  	  	UCA0BR1 = 0; 
+  	  	//USCI_B0. The two following registers are the clock prescales. Prescaler = (UCB0BR0 + UCB0BR1 x 256)
+//	  	UCB0BR0 |= 0x02;                         
+//	  	UCB0BR1 = 0; 
+  	  	
+  	  	//USCI_A0
+// 	  	UCA0STAT = 
+// 	  			  UCLISTEN 		// If set: Listen enabled (transmitter output fed back to the receiver). If not set: Listen disabled
+// 	  			| UCFE			// If set indicates that there is a bus conflict in 4-wire mode. Not used in 3-wire mode.
+//	  			| UCOE			// Must NOT be set by software. If set indicates that a character was received in the UCxRXBUF before the previous character was read.  
+// 	  			| UCBUSY		// If set indicates that USCI is transmitting or receiving. 
+// 	  			;
+  	  	//USCI_B0
+// 	  	UCB0STAT = 
+// 	  			  UCLISTEN 		// If set: Listen enabled (transmitter output fed back to the receiver). If not set: Listen disabled
+// 	  			| UCFE			// If set indicates that there is a bus conflict in 4-wire mode. Not used in 3-wire mode.
+//	  			| UCOE			// Must NOT be set by software. If set indicates that a character was received in the UCxRXBUF before the previous character was read.  
+// 	  			| UCBUSY		// If set indicates that USCI is transmitting or receiving. 
+// 	  			;
+  	  	UCA0MCTL = 0;                             // No modulation
+  	  	UCA0CTL1 &= ~UCSWRST;                     // **Initialize USCI state machine**
+  	  	
+  	  	IE2 = 
+  	  			  UCA0RXIE		// Enable USCI_A0 RX interrupt
+//	  			| UCA0TXIE		// Enable USCI_A0 TX interrupt
+//	  			| UCB0RXIE		// Enable USCI_B0 RX interrupt
+// 	  			| UCB0TXIE		// Enable USCI_B0 Tx interrupt
+  	  			;
+  	  	
+// 	  	IFG2 = 
+//	  			  UCA0RXIFG		// A0 RX interrupt flag. Set when received a complete character
+//	  			| UCA0TXIFG		// A0 TX interrupt flag. Set when buffer is empty
+//	  			| UCB0RXIFG		// B0 RX interrupt flag. Set when received a complete character
+//	  			| UCB0TXIFG		// B0 TX interrupt flag. Set when buffer is empty
+//	  			;

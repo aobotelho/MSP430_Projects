@@ -1,0 +1,16 @@
+--> problemas com "\f","\n","\r" 
+	O terminal X-CTU imprime o tab como "."
+	Precisa usar o terminal do X-CTU?
+	provavelmente isso estava gerando o problema dos "pontos a mais" mostrados na tela. 
+
+--> O primeiro programa não estava transmitindo corretamente
+	Retirada do "parity enable" resolveu o problema.
+	
+--> tive que "zerar" o vetor "buffer" antes de usa-lo para armazenar o resultado da conversão AD para que não tivesse
+"herança" do resultado da conversão anterior
+
+--> taxa de transmissão de dados não está constante. Provavelmente devido às comparações feitas dentro da interrupção do 
+TX.
+	Precisa trocar?
+
+--> precisa acertar qual terminar usar para problemas de protocolo/sincronização.

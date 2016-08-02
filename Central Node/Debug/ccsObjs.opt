@@ -1,0 +1,1 @@
+"./HomeAutomation.obj" "./SPIConfig.obj" "./Serial_LCD.obj" "./TimerA.obj" "./UARTConfig.obj" "./main.obj" "./msprf24.obj" "../lnk_msp430g2553.cmd" -l"libc.a" 

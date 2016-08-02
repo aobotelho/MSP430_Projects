@@ -1,0 +1,7 @@
+--> Errata do datasheet: No datasheet com os nomes dos registradores diz 
+"The scale factor and offset for the temperature sensor are found in the Electrical Specifications table (Section 6.4 of the MPU-6000/MPU-6050 Product Specification document)."
+    O dado, da verdade, se encontra na tabela 6.3.
+
+--> O numero lido no registrador da temperatura é um SIGNED INT.
+
+--> Os numeros lidos nos registradores dos acelerometros estão em 2'S COMPLEMENT, assim como os do giroscopio

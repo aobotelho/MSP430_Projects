@@ -1,0 +1,4 @@
+--> resolvido problema de troca de linha
+--> tamanho variado da quantidade de bytes enviados
+--> Melhora no tempo da interrupção
+--> Melhora no sincronismo 

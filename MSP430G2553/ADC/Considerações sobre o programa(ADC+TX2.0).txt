@@ -1,0 +1,11 @@
+--> Usa o modo de sequencia do ADC10 do MSP
+--> Envia sempre a mesma quantidade de dados
+--> Armazena os dados em uma string de tamanho 27 (send[27])
+    _____________________________________________________
+   |x|:| |D|D|D|D| | |y|:| |D|D|D|D| | |z|:| |D|D|D|D|s|s|   D = data
+   |_|_|_|_|_|_|_|_|_|_|_|_|_|_|_|_|_|_|_|_|_|_|_|_|_|_|_|   s = skip
+    0 0 0 0 0 0 0 0 0 0 1 1 1 1 1 1 1 1 1 1 2 2 2 2 2 2 2
+    0 1 2 3 4 5 6 7 8 9	0 1 2 3 4 5 6 7 8 9 0 1 2 3 4 5 6
+
+--> Real time
+-> Problema: uma vez que os dados de x ultrapassam 1000 (4 digitos) o "x" some, vira um "."
